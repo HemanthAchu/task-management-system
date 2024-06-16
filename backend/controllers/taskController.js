@@ -17,3 +17,15 @@ exports.createTask = async (req, res) => {
         res.status(500).json({ message: 'oops,We are not able to add task,Please try again later' });
     }
 };
+
+
+exports.getTasks = async (req, res) => {
+    try {
+        const tasks = await Task.find({ id: req.payload });
+        res.status(200).json(tasks);
+    } catch (error) {
+        res.status(500).json({ message: 'oops,We are not able to list task,Please try again later' });
+
+    }
+};
+
