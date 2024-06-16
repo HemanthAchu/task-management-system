@@ -34,6 +34,21 @@ exports.getTask = async (req, res) => {
      const task =   await Task.findById(req.params.id);
         res.status(200).json(task);
     } catch (error) {
-        res.status(500).json({ message: 'Server Error' });
+        res.status(500).json({ message: 'oops,We are not able to list the task,Please try again later' });
     }
 };
+
+
+exports.updateTask = async (req, res) => {
+    try {
+        const task = await Task.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        res.status(200).json(task);
+    } catch (error) {
+        res.status(500).json({ message: 'oops,We are not able to update the task,Please try again later' });
+    }
+};
+
