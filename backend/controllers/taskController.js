@@ -52,3 +52,11 @@ exports.updateTask = async (req, res) => {
     }
 };
 
+exports.deleteTask = async (req, res) => {
+    try {
+        await Task.findByIdAndDelete(req.params.id);
+        res.status(200).json({ message: 'Task Successfully Removed ' });
+    } catch (error) {
+        res.status(500).json({ message: 'oops,We are not able to remove the task,Please try again later' });
+    }
+};
