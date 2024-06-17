@@ -96,26 +96,23 @@ function login({insideRegister}) {
 
 
                   <>
-
-                
-
                     <FloatingLabel
-                      controlId="floatingInput"
-                      label="lastname"
+                      
+                      label="Username"
                       className="mb-1"
                     >
-                      <Form.Control value={userInputs.username} onChange={e => setuserInputs({ ...userInputs, username: e.target.value })} type="text" placeholder="lastname" />
+                      <Form.Control value={userInputs.username} onChange={e => setuserInputs({ ...userInputs, username: e.target.value })} type="text" placeholder="Username" />
                     </FloatingLabel>
                   </>
                 }
                 <FloatingLabel
-                  controlId="floatingInput"
+                  
                   label="Email address"
                   className="mb-1"
                 >
                   <Form.Control value={userInputs.email} onChange={e => setuserInputs({ ...userInputs, email: e.target.value })} type="email" placeholder="name@example.com" />
                 </FloatingLabel>
-                <FloatingLabel controlId="floatingPassword" label="Password">
+                <FloatingLabel  label="Password">
                   <Form.Control value={userInputs.password} onChange={e => setuserInputs({ ...userInputs, password: e.target.value })} type="password" placeholder="Password" />
                 </FloatingLabel>
                 {

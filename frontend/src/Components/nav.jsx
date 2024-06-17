@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import {  useNavigate } from 'react-router-dom'
 function nav() {
   const navigate = useNavigate()
-
+const [sess,setsess]=useState('')
   const handleLOgout =()=>{
      sessionStorage.clear()
      navigate("/")
+     
 
   }
+  const token=sessionStorage.getItem("token")
+
   return (
     <Navbar className="shadow">
     <Container className=''>
@@ -23,7 +26,8 @@ function nav() {
         />
         Task Management
       </Navbar.Brand>
-      <Button onClick={handleLOgout}>LogOut</Button>
+
+     {token?<Button onClick={handleLOgout}>LogOut</Button>:null}
     </Container>
   </Navbar>
   )
